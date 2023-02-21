@@ -1,5 +1,3 @@
-vi 4-isalpha.c
-
 #include "main.h"
 /**
  * _isalpha-check if character is lowercase or uppercase
@@ -20,4 +18,3 @@ int _isalpha(int c)
 		return (0);
 	}
 }
-
