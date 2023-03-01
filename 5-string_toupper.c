@@ -1,32 +1,19 @@
 #include "main.h"
 /**
- * cap_string - capitalizes all words of a string
+ * string_toupper - changes all lowercase letters of a string to uppercase
  *
- * @z: the string to look at
- *
- * Return: the capitalized string
+ * @z: letters to check
+ * Return: uppercase letters
  */
 
-char *cap_string(char *z)
+char *string_toupper(char *z)
 {
-	int i = 0;
-	int j;
-	char badBoys[] = " \n\t,;.!?\"(){}";
+	int i;
 
-
-	if (z[0] >= 'a' && z[0] <= 'z')
-		z[0] -= 32;
-
-	for (; z[i] != '\0'; i++)
+	for (i = 0; z[i] != '\0'; i++)
 	{
-		for (j = 0; j < 14; j++)
-		{
-			if (z[i] == badBoys[j])
-			{
-				if (z[i + 1] >= 'a' && z[i + 1] <= 'z')
-					z[i + 1] -= 32;
-			}
-		}
+		if (z[i] >= 97 && z[i] <= 122)
+			z[i] -= 32;
 	}
 
 	return (z);
