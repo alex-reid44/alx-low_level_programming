@@ -6,7 +6,8 @@
 /**
  * binary_to_uint - converts number to unsigned int.
  * @b: binary
- * Return: an unsigned int number
+ * Return: If b is NULL or contains chars not 0 or 1 - 0.
+ *         Otherwise - the converted number.
  */
 unsigned int binary_to_uint(const char *b)
 {
