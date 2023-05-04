@@ -1,24 +1,22 @@
 #include "main.h"
+
 /**
- * flip_bits - return differeces about digits btw 2 numbers
- * @n: input number 1
- * @m: input number 2
- * Return: differences
+ * flip_bits - Counts number of bits
+ *             flipped to get from one number to another
+ * @n: number
+ * @m: number to flip n
+ *
+ * Return: necessary number of bits to flip to get from n to m
  */
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
-	unsigned long int bit_diff, mask = 0;
-	int i, digit;
-	unsigned int differences = 0;
+	unsigned long int x = n ^ m, bits = 0;
 
-	bit_diff = n ^ m;/*1 if bit_n != bit_m (XOR)*/
-
-	for (i = 63; i >= 0; i--)
+	while (x > 0)
 	{
-		mask = 1 << i;/*Creating a mask for extract the digit*/
-		digit = (bit_diff & mask) >> i;/*Extract the digit and push to 0 or 1*/
-		if (digit == 1)
-			differences++;
+		bits += (x & 1);
+		x >>= 1;
 	}
-	return (differences);
+
+	return (bits);
 }
