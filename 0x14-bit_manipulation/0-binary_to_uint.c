@@ -1,31 +1,28 @@
 #include "main.h"
-
 /**
- * binary_to_uint - Converts unsigned int
- * @b: points string of 0 and 1 chars
- *
- * Return: If b is 0 or contains chars not 0 or 1 - 0
- *         Otherwise - the converted number
+ * binary_to_uint - translate number to unsigned int.
+ * @b: pointer to the string of 0's and 1's
+ * Return: an unsigned int number
  */
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int n = 0, m = 1;
-	int length;
+	unsigned int num = 0, mult = 1;
+	int len;
 
 	if (b == '\0')
 		return (0);
 
-	for (lenth = 0; b[lenth];)
-		lenth++;
+	for (len = 0; b[len];)
+		len++;
 
-	for (lenth -= 1; lenth >= 0; lenth--)
+	for (len -= 1; len >= 0; len--)
 	{
-		if (b[lenth] != '0' && b[lenth] != '1')
+		if (b[len] != '0' && b[len] != '1')
 			return (0);
 
-		n += (b[lenth] - '0') * m;
-		m *= 2;
+		num += (b[len] - '0') * mult;
+		mult *= 2;
 	}
 
-	return (n);
+	return (num);
 }
