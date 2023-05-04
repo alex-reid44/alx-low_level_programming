@@ -1,28 +1,25 @@
 #include "main.h"
 /**
- * binary_to_uint - translate number to unsigned int.
- * @b: pointer to the string of 0's and 1's
- * Return: an unsigned int number
+ * binary_to_uint - translate number to unsigned int
+ * @b: points string of 0 and 1
+ * Return: unsigned int number
  */
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int num = 0, mult = 1;
-	int len;
+	int p;
+	unsigned int n = 0;
 
-	if (b == '\0')
+	if (!b)
 		return (0);
 
-	for (len = 0; b[len];)
-		len++;
-
-	for (len -= 1; len >= 0; len--)
+	for (p = 0; *(b + p) != '\0'; p++)
 	{
-		if (b[len] != '0' && b[len] != '1')
+		if (*(b + p)  == '1')
+			n = (n << 1) | 1;/*insert 1 and make displacement*/
+		else if (*(b + p) == '0')
+			n <<= 1; /*only displace*/
+		else
 			return (0);
-
-		num += (b[len] - '0') * mult;
-		mult *= 2;
 	}
-
-	return (num);
+	return (n);
 }
